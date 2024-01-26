@@ -55,8 +55,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.trodix.duckcloud.connectors.onlyoffice</groupId>
-            <artifactId>connectors-onlyoffice-ext</artifactId>
+            <groupId>com.trodix.onlyoffice</groupId>
+            <artifactId>onlyoffice-spring-boot-starter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

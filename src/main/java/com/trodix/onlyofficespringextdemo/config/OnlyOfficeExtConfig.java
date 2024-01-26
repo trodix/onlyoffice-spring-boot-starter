@@ -1,12 +1,11 @@
 package com.trodix.onlyofficespringextdemo.config;
 
-import com.trodix.duckcloud.connectors.onlyoffice.models.OfficeDocument;
-import com.trodix.duckcloud.connectors.onlyoffice.models.UserRepresentation;
-import com.trodix.duckcloud.connectors.onlyoffice.services.DocumentService;
-import com.trodix.duckcloud.connectors.onlyoffice.services.OnlyOfficeUserService;
+import com.trodix.onlyoffice.models.OfficeDocument;
+import com.trodix.onlyoffice.models.UserRepresentation;
+import com.trodix.onlyoffice.services.OnlyOfficeDocumentService;
+import com.trodix.onlyoffice.services.OnlyOfficeUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -21,8 +20,6 @@ public class OnlyOfficeExtConfig {
 
         // OAUTH authentication
         http
-                .httpBasic()
-                .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/actuator/**")
                 .permitAll()
@@ -68,8 +65,8 @@ public class OnlyOfficeExtConfig {
     }
 
     @Bean
-    public DocumentService documentService() {
-        return new DocumentService() {
+    public OnlyOfficeDocumentService documentService() {
+        return new OnlyOfficeDocumentService() {
             @Override
             public OfficeDocument findById(String documentId) {
                 return new OfficeDocument();

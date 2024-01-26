@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.trodix", "com.trodix.duckcloud.connectors.onlyoffice"})
 public class OnlyofficeSpringExtDemoApplication {
 
     public static void main(String[] args) {
