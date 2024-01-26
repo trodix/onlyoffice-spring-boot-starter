@@ -1,79 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+    <groupId>com.trodix.onlyoffice</groupId>
+    <artifactId>onlyoffice-spring-boot-starter</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
-    <groupId>com.trodix</groupId>
-    <artifactId>onlyoffice-spring-ext-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/trodix/app</url>
+        </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/trodix/app</url>
+        </snapshotRepository>
+    </distributionManagement>
 
-    <name>onlyoffice-spring-ext-demo</name>
-    <description>onlyoffice-spring-ext-demo</description>
-<!--    <modules>-->
-<!--        <module>onlyoffice-ext</module>-->
-<!--    </modules>-->
-
-    <!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>github</id>-->
-<!--            <url>https://maven.pkg.github.com/trodix/duckcloud-server</url>-->
-<!--        </repository>-->
-<!--        <snapshotRepository>-->
-<!--            <id>github</id>-->
-<!--            <url>https://maven.pkg.github.com/trodix/duckcloud-server</url>-->
-<!--        </snapshotRepository>-->
-<!--    </distributionManagement>-->
-
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>github</id>-->
-<!--            <url>https://maven.pkg.github.com/trodix/duckcloud-server</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/trodix/app</url>
+        </repository>
+    </repositories>
 
     <properties>
-        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spring-boot.version>3.2.2</spring-boot.version>
+
+        <spring-doc.version>2.0.4</spring-doc.version>
+        <lombok.version>1.18.30</lombok.version>
+
+        <fusionauth-jwt.version>5.2.0</fusionauth-jwt.version>
+        <java-jwt.version>4.3.0</java-jwt.version>
+        <jakarta.json-api.version>2.1.2</jakarta.json-api.version>
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <version>${spring-boot.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.trodix.onlyoffice</groupId>
-            <artifactId>onlyoffice-spring-boot-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${spring-doc.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.fusionauth</groupId>
+            <artifactId>fusionauth-jwt</artifactId>
+            <version>${fusionauth-jwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${java-jwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+            <version>${jakarta.json-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
