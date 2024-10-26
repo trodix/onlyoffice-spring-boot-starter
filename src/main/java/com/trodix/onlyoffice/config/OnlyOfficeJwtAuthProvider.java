@@ -83,7 +83,9 @@ public class OnlyOfficeJwtAuthProvider implements AuthenticationProvider {
                 jwtSpringFormatBuilder
                         .claims((claims) -> claims.put("sub", userRepresentation.getId()))
                         .claims((claims) -> claims.put("username", userRepresentation.getUsername()))
-                        .claims((claims) -> claims.put("name", userRepresentation.getLastName()))
+                        .claims((claims) -> claims.put("given_name", userRepresentation.getFirstName()))
+                        .claims((claims) -> claims.put("family_name", userRepresentation.getLastName()))
+                        .claims((claims) -> claims.put("name", String.format("%s %s", userRepresentation.getFirstName(), userRepresentation.getLastName())))
                         .claims((claims) -> claims.put("email", userRepresentation.getEmail()));
 
                 log.debug("Successfully authenticated from OnlyOffice JWT with impersonation for user {}", lastEditorUserId);
